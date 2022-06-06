@@ -1,24 +1,21 @@
-# README
+# Flix
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+coming soon...
 
-* Ruby version
+## System requirements
 
-* System dependencies
+* Ruby
+* Node.js
+* Yarn
+* SQLite3
+* [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
-* Configuration
+## Installation
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+make setup
+make test # run tests
+make start # run server http://localhost:3000
+```
