@@ -4,3 +4,5 @@ ul
       strong = movie.title
       | &nbsp;(#{movie.rating})
       | &nbsp;#{number_to_currency(movie.total_gross, precision: 0)}
+      p = movie.description
+      p = movie.relased_on
