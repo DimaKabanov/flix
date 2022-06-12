@@ -3,6 +3,6 @@ ul
     li
       strong = movie.title
       | &nbsp;(#{movie.rating})
-      | &nbsp;#{number_to_currency(movie.total_gross, precision: 0)}
-      p = movie.description
-      p = movie.relased_on
+      | &nbsp;#{total_gross(movie)}
+      p = truncate(movie.description, length: 40, separator: ' ')
+      p = year_of(movie)
