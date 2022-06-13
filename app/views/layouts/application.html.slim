@@ -9,4 +9,11 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = yield
+    header
+      h1 Flix
+    .content
+      = yield
+    footer
+      p
+        | Copyright &copy; 2005-#{Time.current.year}
+        | &nbsp;#{link_to 'The Pragmatic Studio', 'https://pragmaticstudio.com'}
