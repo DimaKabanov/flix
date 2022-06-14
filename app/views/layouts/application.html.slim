@@ -1,18 +1,20 @@
 doctype html
 html
   head
-    title
-      | Flix
+    title Flix
     meta[name="viewport" content="width=device-width,initial-scale=1"]
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
   body
     header
-      h1 Flix
+      = image_tag('logo', alt: 'Flix')
+
     .content
       = yield
+
     footer
       p
         | Copyright &copy; 2005-#{Time.current.year}

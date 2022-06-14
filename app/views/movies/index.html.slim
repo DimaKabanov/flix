@@ -1,8 +1,6 @@
-ul
-  - @movies.each do |movie|
-    li
-      strong = movie.title
-      | &nbsp;(#{movie.rating})
-      | &nbsp;#{total_gross(movie)}
-      p = truncate(movie.description, length: 40, separator: ' ')
-      p = year_of(movie)
+- @movies.each do |movie|
+  section.movie
+    .summary
+      h2 = movie.title
+      h3 = total_gross(movie)
+      p = truncate(movie.description, length: 150, separator: ' ')
