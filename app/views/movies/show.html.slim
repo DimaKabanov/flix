@@ -1,0 +1,10 @@
+section.movie-details
+  .details
+    h1 = @movie.title
+    h2
+      | #{year_of(@movie)} &bull; #{@movie.rating}
+    p = @movie.description
+    table
+      tr
+        th Total Gross:
+        td = total_gross(@movie)
