@@ -10,7 +10,7 @@ section.movie-details
         td = total_gross(@movie)
 
 section.admin
-  = link_to('Edit', edit_movie_path(@movie), class: 'button')
+  = link_to('Edit', edit_movie_path(@movie), class: 'button mr-2')
   = link_to('Delete', @movie,
                       class: 'button',
                       method: 'delete',
