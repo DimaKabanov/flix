@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
 
   def update
     if movie.update(movie_params)
-      redirect_to movie, notice: 'Movie successfully updated!'
+      redirect_to movie, notice: t('.success')
     else
       render :edit
     end
@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to @movie, notice: 'Movie successfully created!'
+      redirect_to @movie, notice: t('.success')
     else
       render :new
     end
@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
 
   def destroy
     movie.destroy
-    redirect_to movies_url, alert: 'Movie successfully deleted!'
+    redirect_to movies_url, alert: t('.success')
   end
 
   private

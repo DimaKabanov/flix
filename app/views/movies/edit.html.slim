@@ -1,4 +1,3 @@
-h1
-  | Editing #{@movie.title}
+h1 = t('.title', title: @movie.title)
 
 = render 'form', movie: @movie

@@ -6,22 +6,24 @@ section.movie-details
     h2
       | #{year_of(@movie)} &bull; #{@movie.rating}
     .reviews
-      = link_to(pluralize(@movie.reviews.size, 'review'), movie_reviews_path(@movie))
+      = link_to(t('.review', count: @movie.reviews.size),
+                movie_reviews_path(@movie))
     p = @movie.description
     table
       tr
-        th Director:
+        th = t('.director')
         td = @movie.director
       tr
-        th Duration:
+        th = t('.duration')
         td = @movie.duration
       tr
-        th Total Gross:
+        th = t('.total_gross')
         td = total_gross(@movie)
 
 section.admin
-  = link_to('Edit', edit_movie_path(@movie), class: 'button mr-2')
-  = link_to('Delete', @movie,
-                      class: 'button',
-                      method: 'delete',
-                      data: { confirm: 'Are you shure?' })
+  = link_to(t('.edit'), edit_movie_path(@movie), class: 'button mr-2')
+  = link_to(t('.delete'),
+            @movie,
+            class: 'button',
+            method: 'delete',
+            data: { confirm: t('confirm') })

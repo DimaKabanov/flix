@@ -8,4 +8,4 @@
       p = truncate(movie.description, length: 150, separator: ' ')
 
 section.admin
-  = link_to('Add New Movie', new_movie_path, class: 'button')
+  = link_to(t('.add'), new_movie_path, class: 'button')
