@@ -19,6 +19,7 @@ section.movie-details
       tr
         th = t('.total_gross')
         td = total_gross(@movie)
+    = link_to(t('.new_review'), new_movie_review_path(@movie), class: 'review')
 
 section.admin
   = link_to(t('.edit'), edit_movie_path(@movie), class: 'button mr-2')
