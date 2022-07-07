@@ -9,6 +9,7 @@ ul.reviews
         span.date = t('.created_at', time: time_ago_in_words(review.created_at))
       p
         = review.comment
+        = link_to(t('.edit'), edit_movie_review_path(@movie, review), class: 'button')
         = link_to(t('.delete'),
               movie_review_path(@movie, review),
               class: 'button',

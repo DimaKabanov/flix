@@ -13,9 +13,22 @@ class ReviewsController < ApplicationController
     @review = movie.reviews.new(review_params)
 
     if @review.save
-      redirect_to movie_reviews_url(@movie), notice: t('.success')
+      redirect_to movie_reviews_url(movie), notice: t('.success')
     else
       render :new
+    end
+  end
+
+  def edit
+    @review = movie.reviews.find(params[:id])
+  end
+
+  def update
+    @review = movie.reviews.find(params[:id])
+    if @review.update(review_params)
+      redirect_to movie_reviews_url(movie), notice: t('.success')
+    else
+      render :edit
     end
   end
 

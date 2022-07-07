@@ -1,19 +1,4 @@
 h1
   | #{t('.title')} #{link_to(@movie.title, @movie)}
 
-= form_with(model: [@movie, @review], local: true) do |f|
-  = render 'shared/errors', object: @review
-
-  = f.label :name
-  = f.text_field :name, autofocus: true
-
-  = f.label :stars
-  - Review::STARS.each do |star|
-    span.star
-      = f.radio_button :stars, star
-      = label_tag star
-
-  = f.label :comment
-  = f.text_area :comment, rows: 10, placeholder: t('.comment_help')
-
-  = f.submit
+= render('form', movie: @movie, review: @review)

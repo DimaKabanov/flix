@@ -32,13 +32,19 @@ en:
       edit: Edit
       delete: Delete
   reviews:
+    form:
+      comment_help: What did you think?
     index:
       title: Reviews for
       created_at: '%{time} ago'
+      edit: Edit
       delete: Delete
+    edit:
+      title: Editing %{title}
     new:
       title: New Review for
-      comment_help: What did you think?
+    update:
+      success: Review successfully updated!
     create:
       success: Thanks for your review!
     destroy:
