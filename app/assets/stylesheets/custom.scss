@@ -468,7 +468,6 @@ form:not([class="button_to"]) {
 
   input[type="radio"] + label {
     @extend .form-check-label;
-    margin-bottom: 0.6rem;
     font-weight: 400;
   }
 
@@ -480,6 +479,7 @@ form:not([class="button_to"]) {
 
   .star {
     @extend .form-check, .form-check-inline;
+    margin-bottom: 0.75rem
   }
 
   .checkboxes {

@@ -35,8 +35,11 @@ en:
     index:
       title: Reviews for
       created_at: '%{time} ago'
+      delete: Delete
     new:
       title: New Review for
       comment_help: What did you think?
     create:
       success: Thanks for your review!
+    destroy:
+      success: Review successfully deleted!

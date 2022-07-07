@@ -7,4 +7,10 @@ ul.reviews
       p
         = review.name
         span.date = t('.created_at', time: time_ago_in_words(review.created_at))
-      p = review.comment
+      p
+        = review.comment
+        = link_to(t('.delete'),
+              movie_review_path(@movie, review),
+              class: 'button',
+              method: 'delete',
+              data: { confirm: t('confirm') })
