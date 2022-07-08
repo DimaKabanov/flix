@@ -6,6 +6,7 @@ section.movie-details
     h2
       | #{year_of(@movie)} &bull; #{@movie.rating}
     .reviews
+      = render('shared/stars', percent: @movie.average_stars_as_precent)
       = link_to(t('.review', count: @movie.reviews.size),
                 movie_reviews_path(@movie))
     p = @movie.description
