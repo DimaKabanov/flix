@@ -43,6 +43,6 @@ class Movie < ApplicationRecord
   end
 
   def average_stars_as_precent
-    (self.average_stars / 5.0) * 100.0
+    (average_stars / 5.0) * 100.0
   end
 end
