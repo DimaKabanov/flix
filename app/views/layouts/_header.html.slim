@@ -1,5 +1,8 @@
 header
   nav
     = link_to(image_tag('logo', alt: t('title')), root_path)
-    ul
+    ul.left
       li = link_to(t('nav.all'), movies_path)
+    ul.right
+      li = link_to(t('nav.signup'), signup_path, class: 'button')
+

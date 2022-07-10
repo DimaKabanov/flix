@@ -1,0 +1,6 @@
+h1 = t('.user', count: @users.count)
+- @users.each do |user|
+  ul.users
+    li
+      span.mr-1 = link_to(user.name, user)
+      small = t('.created_at', time: time_ago_in_words(user.created_at))
