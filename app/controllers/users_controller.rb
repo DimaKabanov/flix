@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = user
   end
 
   def new
@@ -22,11 +22,33 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = user
+  end
+
+  def update
+    if user.update(user_params)
+      redirect_to user, notice: t('.success')
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    user.destroy
+    redirect_to movies_url, alert: t('.success')
+  end
+
   private
+
+  def user
+    @user ||= User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(
       :name,
+      :username,
       :email,
       :password,
       :password_confirmation

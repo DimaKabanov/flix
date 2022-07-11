@@ -8,6 +8,17 @@ en:
       copyright: Copyright © 2005-%{year}
       studio_title: The Pragmatic Studio
   confirm: Are you sure?
+  helpers:
+    label:
+      user:
+        name: Name
+        email: Email
+        password: Password
+        password_confirmation: Confirm Password
+    submit:
+      user:
+        create: Create Account
+        update: Update Account
   movies:
     index:
       add: Add New Movie
@@ -58,7 +69,15 @@ en:
       created_at: created %{time} ago
     show:
       member: Member Since
+      edit: Edit Account
+      delete: Delete Account
     new:
       title: Sign Up
+    edit:
+      title: Edit Account
+    update:
+      success: Account successfully updated!
     create:
       success: Thanks for signing up!
+    destroy:
+      success: Account successfully deleted!
