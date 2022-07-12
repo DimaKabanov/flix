@@ -3,6 +3,7 @@ en:
   nav:
     all: All Movies
     signup: Sign Up
+    signin: Sign In
   layouts:
     footer:
       copyright: Copyright © 2005-%{year}
@@ -81,3 +82,8 @@ en:
       success: Thanks for signing up!
     destroy:
       success: Account successfully deleted!
+  sessions:
+    new:
+      title: Sign In
+      signup: Sign Up!
+      no_account: No account yet?
