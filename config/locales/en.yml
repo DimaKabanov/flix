@@ -87,3 +87,6 @@ en:
       title: Sign In
       signup: Sign Up!
       no_account: No account yet?
+    create:
+      success: Welcome back, %{name}!
+      failed: Invalid email/password combination!
