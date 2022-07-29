@@ -4,6 +4,10 @@ header
     ul.left
       li = link_to(t('nav.all'), movies_path)
     ul.right
-      li = link_to(t('nav.signin'), signin_path, class: 'button')
-      li = link_to(t('nav.signup'), signup_path, class: 'button')
+      - if signed_in?
+        li = link_to(current_user.name.capitalize, current_user)
+        li = link_to(t('nav.setting'), edit_user_path(current_user))
+      - else
+        li = link_to(t('nav.signin'), signin_path, class: 'button')
+        li = link_to(t('nav.signup'), signup_path, class: 'button')
 

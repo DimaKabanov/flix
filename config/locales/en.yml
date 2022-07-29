@@ -4,6 +4,7 @@ en:
     all: All Movies
     signup: Sign Up
     signin: Sign In
+    setting: Account Settings
   layouts:
     footer:
       copyright: Copyright © 2005-%{year}
