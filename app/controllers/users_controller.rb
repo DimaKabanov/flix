@@ -37,6 +37,7 @@ class UsersController < ApplicationController
 
   def destroy
     user.destroy
+    sign_out
     redirect_to movies_url, alert: t('.success')
   end
 

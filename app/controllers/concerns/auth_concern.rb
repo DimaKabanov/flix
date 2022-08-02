@@ -7,6 +7,11 @@ module AuthConcern
     session[:user_id] = user.id
   end
 
+  def sign_out
+    session.delete(:user_id)
+    session.clear
+  end
+
   def signed_in?
     !current_user.nil?
   end

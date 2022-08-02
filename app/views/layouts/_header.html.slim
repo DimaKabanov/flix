@@ -7,6 +7,7 @@ header
       - if signed_in?
         li = link_to(current_user.name.capitalize, current_user)
         li = link_to(t('nav.setting'), edit_user_path(current_user))
+        li = link_to(t('nav.signout'), signout_path, method: 'delete', class: 'button')
       - else
         li = link_to(t('nav.signin'), signin_path, class: 'button')
         li = link_to(t('nav.signup'), signup_path, class: 'button')

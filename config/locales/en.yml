@@ -4,6 +4,7 @@ en:
     all: All Movies
     signup: Sign Up
     signin: Sign In
+    signout: Sign Out
     setting: Account Settings
   layouts:
     footer:
@@ -91,3 +92,5 @@ en:
     create:
       success: Welcome back, %{name}!
       failed: Invalid email/password combination!
+    destroy:
+      success: You're now signed out!
