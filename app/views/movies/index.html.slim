@@ -1,4 +1,6 @@
 ul
   - @movies.each do |movie|
     li
-      = movie
+      | #{movie.title}
+      |  (#{movie.rating}):
+      |  #{number_to_currency movie.total_gross, precision: 0}
