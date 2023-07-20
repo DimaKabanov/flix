@@ -8,3 +8,6 @@ section.movie-details
       tr
         th Total Gross:
         td = total_gross(@movie)
+
+section.admin
+  = link_to 'Edit', edit_movie_path(@movie), class: 'button'
