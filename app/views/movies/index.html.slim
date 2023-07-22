@@ -4,3 +4,6 @@
       h2 = link_to movie.title, movie
       h3 = total_gross movie
       p = truncate movie.description, length: 40, separatro: ' '
+
+section.admin
+  = link_to 'Add New Movie', new_movie_path, class: 'button'
