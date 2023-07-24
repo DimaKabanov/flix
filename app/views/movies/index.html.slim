@@ -1,5 +1,7 @@
 - @movies.each do |movie|
   section.movie
+    .image
+      = image_tag movie.image_file_name
     .summary
       h2 = link_to movie.title, movie
       h3 = total_gross movie

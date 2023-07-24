@@ -6,6 +6,6 @@ class Movie < ApplicationRecord
   end
 
   def self.released
-    where('released_on < ?', Time.now).order(released_on: :desc)
+    where('released_on < ?', Time.zone.now).order(released_on: :desc)
   end
 end
