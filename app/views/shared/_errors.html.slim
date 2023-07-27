@@ -1,0 +1,9 @@
+- if object.errors.any?
+  section.errors
+    h2 Oops! Your form could not be saved.
+    h3
+      | Please correct the following
+      = pluralize(object.errors.size, 'error')
+
+    - object.errors.full_messages.each do |message|
+      li = message
