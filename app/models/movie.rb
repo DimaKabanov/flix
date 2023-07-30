@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class Movie < ApplicationRecord
-  RATINGS = %W(G PG PG-13 R NC-17)
+  has_many :reviews, dependent: :destroy
+
+  RATINGS = %w[G PG PG-13 R NC-17].freeze
 
   validates :title, :released_on, :duration, presence: true
   validates :description, length: { minimum: 25 }
