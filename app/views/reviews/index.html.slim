@@ -1,0 +1,12 @@
+h1
+  | Reviews for #{link_to @movie.title, @movie}
+
+ul.reviews
+  - @reviews.each do |review|
+    li
+      = render 'shared/stars', percent: review.start_as_percent
+      p
+        | #{review.name}
+        span.date
+          | #{time_ago_in_words(review.created_at)} ago
+      p = review.comment
