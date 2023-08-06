@@ -5,6 +5,7 @@
     .summary
       h2 = link_to movie.title, movie
       h3 = total_gross movie
+      = render 'shared/stars', percent: movie.average_stars_as_percent
       p = truncate movie.description, length: 40, separatro: ' '
 
 section.admin

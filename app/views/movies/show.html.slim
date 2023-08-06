@@ -5,8 +5,11 @@ section.movie-details
     h1 = @movie.title
     h2
       | #{year_of(@movie)} &bull; #{@movie.rating}
-    .reviews = link_to pluralize(@movie.reviews.size, 'review'),
-                       movie_reviews_path(@movie)
+    .reviews
+      = render 'shared/stars', percent: @movie.average_stars_as_percent
+      | &nbsp;
+      = link_to pluralize(@movie.reviews.size, 'review'),
+                movie_reviews_path(@movie)
     p = @movie.description
     table
       tr
@@ -22,6 +25,7 @@ section.movie-details
 
 section.admin
   = link_to 'Edit', edit_movie_path(@movie), class: 'button'
+  | &nbsp;
   = link_to 'Delete',
     @movie,
     class: 'button',
