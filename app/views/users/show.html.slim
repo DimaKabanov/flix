@@ -2,5 +2,13 @@ section.user
   = profile_image @user
   h1 = @user.name
   h2 = mail_to @user.email
+  h2 = @user.username
   h3 Member Since
   p = @user.created_at.strftime('%B %Y')
+  .actions
+    = link_to 'Edti Account', edit_user_path(@user), class: 'button edit'
+    | &nbsp;
+    = link_to 'Delete Account',
+      @user,
+      class: 'button delete',
+      data: { turbo_method: :delete, turbo_confirm: 'Are you shure?' }
