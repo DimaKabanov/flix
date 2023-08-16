@@ -7,6 +7,9 @@ header
     ul.right
       - if current_user
         li = link_to current_user.name, current_user
+        li = link_to 'Sign Out', session_path,
+                      class: 'button',
+                      data: { turbo_method: :delete }
         li = link_to 'Account Settings', edit_user_path(current_user)
       - else
         li = link_to 'Sign In', signin_path, class: 'button'
