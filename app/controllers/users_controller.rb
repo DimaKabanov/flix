@@ -2,6 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :require_signin, except: %i[new create]
+  before_action :require_correct_user, only: %i[edit update destroy]
 
   def index
     @users = User.all
@@ -25,12 +26,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user, notice: 'Account was successfully updated'
     else
@@ -39,7 +37,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     session[:user_id] = nil
     redirect_to movies_url, status: :see_other, alert: 'Account successfully deleted!'
@@ -55,5 +52,10 @@ class UsersController < ApplicationController
       :password,
       :password_confirmation
     )
+  end
+
+  def require_correct_user
+    @user = User.find(params[:id])
+    redirect_to root_url, status: :see_other unless current_user?(@user)
   end
 end

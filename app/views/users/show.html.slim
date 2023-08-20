@@ -5,10 +5,11 @@ section.user
   h2 = @user.username
   h3 Member Since
   p = @user.created_at.strftime('%B %Y')
-  .actions
-    = link_to 'Edti Account', edit_user_path(@user), class: 'button edit'
-    | &nbsp;
-    = link_to 'Delete Account',
-      @user,
-      class: 'button delete',
-      data: { turbo_method: :delete, turbo_confirm: 'Are you shure?' }
+  - if current_user?(@user)
+    .actions
+      = link_to 'Edti Account', edit_user_path(@user), class: 'button edit'
+      | &nbsp;
+      = link_to 'Delete Account',
+        @user,
+        class: 'button delete',
+        data: { turbo_method: :delete, turbo_confirm: 'Are you shure?' }
