@@ -5,9 +5,10 @@ section.user
   h2 = @user.username
   h3 Member Since
   p = @user.created_at.strftime('%B %Y')
-  - if current_user?(@user)
-    .actions
-      = link_to 'Edti Account', edit_user_path(@user), class: 'button edit'
+  .actions
+    - if current_user?(@user)
+      = link_to 'Edit Account', edit_user_path(@user), class: 'button edit'
+    - if current_user_admin?
       | &nbsp;
       = link_to 'Delete Account',
         @user,

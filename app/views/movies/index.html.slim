@@ -8,5 +8,6 @@
       = render 'shared/stars', percent: movie.average_stars_as_percent
       p = truncate movie.description, length: 40, separatro: ' '
 
-section.admin
-  = link_to 'Add New Movie', new_movie_path, class: 'button'
+- if current_user_admin?
+  section.admin
+    = link_to 'Add New Movie', new_movie_path, class: 'button'
