@@ -14,3 +14,14 @@ section.user
         @user,
         class: 'button delete',
         data: { turbo_method: :delete, turbo_confirm: 'Are you shure?' }
+
+  - if @reviews.present?
+    h3 Reviews
+    - @reviews.each do |review|
+      .review
+        .details
+          span.title = link_to review.movie.title, review.movie
+          = pluralize(review.stars, 'star')
+          span.date
+            | #{time_ago_in_words(review.created_at)} ago
+          p = review.comment

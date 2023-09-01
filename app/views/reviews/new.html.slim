@@ -4,9 +4,6 @@ h1
 = form_with model: [@movie, @review] do |f|
   = render 'shared/errors', object: @review
 
-  = f.label :name
-  = f.text_field :name
-
   = f.label :stars
   = f.select :stars, Review::STARS, prompt: 'Pick one'
 

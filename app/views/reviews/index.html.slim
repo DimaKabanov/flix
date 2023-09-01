@@ -6,7 +6,8 @@ ul.reviews
     li
       = render 'shared/stars', percent: review.start_as_percent
       p
-        | #{review.name}
+        = profile_image(review.user, 35)
+        | #{link_to review.user.name, review.user}
         span.date
           | #{time_ago_in_words(review.created_at)} ago
       p = review.comment
