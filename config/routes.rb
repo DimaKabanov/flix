@@ -3,6 +3,8 @@
 Rails.application.routes.draw do
   root 'movies#index'
 
+  resources :genres
+
   resources :movies do
     resources :reviews
     resources :favorites, only: %i[create destroy]
