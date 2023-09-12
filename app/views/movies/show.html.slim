@@ -27,13 +27,18 @@ section.movie-details
         td = total_gross(@movie)
     = link_to 'Write Review', new_movie_review_path(@movie), class: 'review'
 
-  - if @fans.present?
-    aside
+  aside
+    - if @fans.present?
       h4 Fans
       ul
         - @fans.each do |user|
-          li
-            = link_to user.name, user
+          li = link_to user.name, user
+
+    - if @genres.present?
+      h4 Genres
+      ul
+        - @genres.each do |genre|
+          li = genre.name
 
 - if current_user_admin?
   section.admin
