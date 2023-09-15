@@ -1,0 +1,15 @@
+h1 = pluralize @genres.size, 'Genre'
+ul.genres
+  - @genres.each do |genre|
+    li
+      = link_to genre.name, genre
+      | &nbsp;
+      - if current_user_admin?
+        = link_to 'Edit', edit_genre_path(genre)
+        | &nbsp;
+        = link_to 'Delete',
+          genre,
+          data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
+
+- if current_user_admin?
+  = render 'form', genre: @genre

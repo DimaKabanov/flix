@@ -38,7 +38,7 @@ section.movie-details
       h4 Genres
       ul
         - @genres.each do |genre|
-          li = genre.name
+          li = link_to genre.name, genre
 
 - if current_user_admin?
   section.admin

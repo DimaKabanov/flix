@@ -1,0 +1,9 @@
+section.user
+  h1
+    | Genre #{@genre.name}
+
+  - if @movies.present?
+    h2 Movies
+    .favorite-movies
+      - @movies.each do |movie|
+        = link_to image_tag(movie.image_file_name), movie
