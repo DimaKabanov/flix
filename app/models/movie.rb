@@ -20,14 +20,14 @@ class Movie < ApplicationRecord
     message: 'must be a JPG or PNG image'
   }
 
+  scope :released, -> { where('released_on < ?', Time.zone.now).order(released_on: :desc) }
+  scope :upcoming, -> { where('released_on > ?', Time.zone.now).order(released_on: :asc) }
+  scope :recent, ->(max = 5) { released.limit(max) }
+
   def flop?
     unless reviews.count > 50 && average_stars >= 4
       (total_gross.blank? || total_gross < 225_000_000)
     end
-  end
-
-  def self.released
-    where('released_on < ?', Time.zone.now).order(released_on: :desc)
   end
 
   def average_stars
