@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :genres
 
+  get 'movies/filter/:filter', to: 'movies#index', as: 'filtered_movies'
+
   resources :movies do
     resources :reviews
     resources :favorites, only: %i[create destroy]

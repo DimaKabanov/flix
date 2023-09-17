@@ -12,4 +12,8 @@ module MoviesHelper
   def year_of(movie)
     movie.released_on.year
   end
+
+  def nav_link_to(name, path)
+    link_to name, path, class: current_page?(path) ? 'active' : nil
+  end
 end
