@@ -9,9 +9,8 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
-    @fans = @movie.fans
-    @genres = @movie.genres.order(:name)
+    @fans = movie.fans
+    @genres = movie.genres.order(:name)
 
     if current_user
       @favorite = current_user.favorites.find_by(movie_id: @movie.id)
@@ -19,13 +18,12 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movie = Movie.find(params[:id])
+    movie
   end
 
   def update
-    @movie = Movie.find(params[:id])
-    if @movie.update(movie_params)
-      redirect_to @movie, notice: 'Movie successfully updated!'
+    if movie.update(movie_params)
+      redirect_to movie, notice: 'Movie successfully updated!'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,8 +43,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
-    @movie.destroy
+    movie.destroy
     redirect_to movies_path, status: :see_other, alert: 'Movie successfully deleted!'
   end
 
@@ -64,6 +61,10 @@ class MoviesController < ApplicationController
       :image_file_name,
       genre_ids: []
     )
+  end
+
+  def movie
+    @movie ||= Movie.find_by!(slug: params[:id])
   end
 
   def movies_filter

@@ -9,8 +9,7 @@ class GenresController < ApplicationController
   end
 
   def show
-    @genre = genre
-    @movies = @genre.movies
+    @movies = genre.movies
   end
 
   def create
@@ -25,7 +24,7 @@ class GenresController < ApplicationController
   end
 
   def edit
-    @genre = genre
+    genre
   end
 
   def update
@@ -44,7 +43,7 @@ class GenresController < ApplicationController
   private
 
   def genre
-    @genre ||= Genre.find(params[:id])
+    @genre ||= Genre.find_by!(slug: params[:id])
   end
 
   def genre_params
