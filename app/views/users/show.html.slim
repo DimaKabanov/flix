@@ -30,4 +30,4 @@ section.user
     h3 Favorite Movies
     .favorite-movies
       - @favorite_movies.each do |movie|
-        = link_to image_tag(movie.image_file_name), movie
+        = link_to main_image(movie), movie
